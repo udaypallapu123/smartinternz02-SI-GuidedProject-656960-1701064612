@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins', sans-serif;
+            box-sizing: border-box;
+        }
+    
+        html{
+            scroll-behavior: smooth;
+        }
+        #header{
+            width: 100%;
+            height: 100vh;
+            background-image: url("bk1.jpg");
+            background-size: cover;
+            background-position: center;
+            
+        }
+        .header{
+            background-color: black;
+
+        }
+
+        .container{
+            padding: 10px 10%;
+        
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+            
+        }
+        .logo{
+            width: 140 px;
+        }
+        nav ul li{
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+        nav ul li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+        nav ul li a::after{
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #F3B664;
+            position:absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+        nav ul li a:hover::after{
+            width: 100%;
+        }
+        .header-text{
+            padding-right: 40px;
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;     
+        }
+        img{
+            border-radius: 30px;
+        }
+        .header-text h1 span{
+            color: #F3B664;
+        }
+        .side{
+            padding: 60px;
+        }
+        .button{
+            position: relative;
+            width: 120px;
+            padding: 15px 0;
+            text-align: center;
+            margin: 20px 10px;
+            font-weight: bold;
+            border: 2px solid #F3B664;
+            background: none;    
+            color: #fff;
+            cursor: pointer;
+            overflow: hidden;
+        }
+          
+        /* Style for the form container */
+        .form-container {
+            width: 800px;
+            height: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background: transparent;
+            /* border-radius: 5px; */
+            margin-top: 100px;
+        }
+
+        /* Style for form row, containing two cells */
+        .form-row {
+            display: flex;
+            color: black;
+            margin-bottom: 10px;
+            background: transparent;
+            
+        }
+
+        /* Style for form input fields */
+        .form-input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid;
+            border-radius: 5px;
+            align-self: center;
+            
+            
+        }
+
+        /* Style for the submit button */
+        .form-submit {
+            background-color: #19b619;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            align-items: center;
+        }
+    </style>
+</head>
+<div class="header">
+    <div class="container">
+        <nav>
+            <ul id="sidemenu">
+                <li ><a style="color: white;" href="templates/predict.html">HOME</a></li>
+                <li ><a style="color: white;"href="#ABOUT">ABOUT</a></li>
+                <li ><a style="color: white;"href="#CONTACT">CONTACT</a></li>
+                
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+        </ul>
+        <form action="/predict" method="post">
+            <button style="background-color: transparent; color: white;" class="button"  href="templates/predict.html">
+                Predict
+            </button>
+        </form>
+
+        </nav>
+       
+    
+    </div>
+
+</div>
+
+<!-- <body style="background-color: #fff;"> -->
+    
+  
+    <div class="form-container">
+        <h1 style="text-align: center;">PIZZA PRIZE PREDICTION</h1>
+        <BR></BR>
+        <form action="/submit" method="post">
+            <div class="form-row">
+                <div class="head">
+                    <h4>company</h4>
+                    <input type="text" class="form-input" name='company'  >
+
+                </div>
+                <div class="head">
+                    <h4 style="margin-left: 250px;">topping</h4>
+                    <input style="margin-left: 250px;" type="text" class="form-input" name='topping' >
+                </div>
+                
+            </div>
+            <div class="form-row">
+                <div class="head">
+                    <h4>variant</h4>
+                    <input type="text" class="form-input" name='variant' >
+                </div>
+                <div class="head">
+                    <h4 style="margin-left: 250px;">size</h4>
+                    <input style="margin-left: 250px;" type="text" class="form-input" name='size' >
+                </div>
+                
+            </div>
+            <div class="form-row">
+                <div class="head">
+                    <h4>extra_cheese</h4>
+                    <input type="text" class="form-input" name='extra_cheese' ></div>
+                <div class="head">
+                    <h4 style="margin-left: 250px;">extra_sauce</h4>
+                    <input style="margin-left: 250px;" type="text" class="form-input" name='extra_sauce' >
+                </div>
+                
+            </div>
+            <div class="form-row">
+                <div class="head">
+                    <h4 style="margin-left: 470px;">extra_mushrooms</h4>
+                    <input style="margin-left: 470px;" type="text" class="form-input" name='extra_mushrooms' >
+                </div>
+                
+            </div>
+            
+            <input type="submit" class="form-submit" value="Submit">
+        </form>
+        <br>
+        <h1 style="text-align: center;">PREDICTED PIZZA PRICE : </h1>
+    </div>
+</body>
+</html>
